@@ -1,15 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package generatestuffs;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Iterator;
-import org.json.simple.JSONArray;
+import java.util.Set;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -28,12 +22,21 @@ public class readjson {
 		String name = (String) jsonObject.get("project");
 		System.out.println(name);
 
-		// loop array
-		JSONArray msg = (JSONArray) jsonObject.get("tables");
-		Iterator<String> iterator = msg.iterator();
-		while (iterator.hasNext()) {
-			System.out.println(iterator.next());
-		}
+		JSONObject tables = (JSONObject) jsonObject.get("tables");
+                
+                Set keySet = tables.keySet();
+
+                Object[] keyArray = keySet.toArray();
+                for( Object element : keyArray) {
+                    System.out.println( "Table name: " + element ); 
+                    Object elem_vals = tables.get(element);
+
+                    String[] cols = elem_vals.toString().split(",");
+                    for( String col : cols) {
+                        System.out.println("oszlop: " + col);
+                    }
+                 }
+
 
 	} catch (FileNotFoundException e) {
 	} catch (IOException | ParseException e) {

@@ -1,1 +1,3 @@
-user (name) article (title body author) comment (comment user)
+project:test1
+table_data:user (name email),article (title body author),comments (comment user)
+relations:user has_many article,user has_many comments,article has_many comments
