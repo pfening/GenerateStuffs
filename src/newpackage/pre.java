@@ -7,18 +7,15 @@ import java.io.IOException;
 
 public class pre {
 
-    public static String fs=System.getProperty("file.separator");
-    public static String hd=System.getProperty("user.home");
-
-    public static String dbfolder="dbtest";
-
-    public static String dbname="test.db";
-
-    public static String dbfullpath=hd + fs + dbfolder + fs + dbname;
-
 	public static void main(String[] args) {
+            
+            String fs=System.getProperty("file.separator");
+            String hd=System.getProperty("user.home");
+            String dbfolder="dbtest";
+            String dbname="test.db";
+            String dbfullpath=hd + fs + dbfolder + fs + dbname;
 
-		File path = new File(hd + fs + dbfolder);
+            File path = new File(hd + fs + dbfolder);
 
 		if (!path.exists()) {
                     path.mkdir();

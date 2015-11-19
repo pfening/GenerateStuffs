@@ -12,7 +12,7 @@ public class Database {
    
         //private final String dbpath ="jdbc:sqlite:/home/pfg/NetBeansProjects/blog.db";
         
-	private Database() {		
+	public Database() {		
 	}
 	
 	public static Database getInstance() {
